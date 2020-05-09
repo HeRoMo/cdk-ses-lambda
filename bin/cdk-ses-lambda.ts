@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 import 'source-map-support/register';
-import * as cdk from '@aws-cdk/core';
-import { CdkSesLambdaStack } from '../lib/cdk-ses-lambda-stack';
+import { App } from '@aws-cdk/core';
+import { SesStack } from '../lib/SesStack';
 
-const app = new cdk.App();
-new CdkSesLambdaStack(app, 'CdkSesLambdaStack');
+import { CONFIG } from '../lib/Config';
+
+console.info(JSON.stringify(CONFIG, null, 2)); // eslint-disable-line no-console
+
+const app = new App();
+new SesStack(app, 'SesStack');

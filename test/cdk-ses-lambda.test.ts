@@ -1,11 +1,11 @@
 import { expect as expectCDK, matchTemplate, MatchStyle } from '@aws-cdk/assert';
-import * as cdk from '@aws-cdk/core';
-import * as CdkSesLambda from '../lib/cdk-ses-lambda-stack';
+import { App } from '@aws-cdk/core';
+import { SesStack } from '../lib/SesStack';
 
 test('Empty Stack', () => {
-  const app = new cdk.App();
+  const app = new App();
   // WHEN
-  const stack = new CdkSesLambda.CdkSesLambdaStack(app, 'MyTestStack');
+  const stack = new SesStack(app, 'MyTestSesStack');
   // THEN
   expectCDK(stack).to(matchTemplate({
     Resources: {},
